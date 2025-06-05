@@ -5,6 +5,19 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Règles pour servir correctement les fichiers statiques
+[[redirects]]
+  from = "/public/*"
+  to = "/public/:splat"
+  status = 200
+
+# Règle pour s'assurer que les images sont correctement servies
+[[redirects]]
+  from = "/*.png"
+  to = "/:splat"
+  status = 200
+
+# Règle de fallback pour les routes Next.js
 [[redirects]]
   from = "/*"
   to = "/index.html"
